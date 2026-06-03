@@ -329,6 +329,8 @@ h1,h2,h3,h4,.display{
 .field input,.field textarea,.field select{width:100%;padding:14px 16px;border:1px solid var(--line);font-family:inherit;font-size:15px;background:#faf9f7;transition:.2s;border-radius:2px}
 .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--red);background:#fff}
 .contact-card .btn{width:100%;justify-content:center}
+.map-wrap{margin-top:54px;border:3px solid var(--gold);box-shadow:var(--shadow);line-height:0}
+.map-wrap iframe{display:block;filter:grayscale(.3) contrast(1.05)}
 
 /* ---------- CTA strip ---------- */
 .cta-strip{background:var(--red);color:#fff;text-align:center;padding:78px 0;position:relative;overflow:hidden}
