@@ -50,6 +50,23 @@
   }, {threshold:.12});
   document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
 
+  /* ---- Lightbox / zoom sur les affiches ---- */
+  var zoomables = document.querySelectorAll(".zoomable");
+  if(zoomables.length){
+    var lb = document.createElement("div");
+    lb.className = "lightbox";
+    lb.innerHTML = '<span class="lb-close" aria-label="Fermer">&times;</span><img alt="">';
+    document.body.appendChild(lb);
+    var lbImg = lb.querySelector("img");
+    function openLb(src, alt){ lbImg.src = src; lbImg.alt = alt || ""; lb.classList.add("open"); document.body.style.overflow = "hidden"; }
+    function closeLb(){ lb.classList.remove("open"); document.body.style.overflow = ""; }
+    zoomables.forEach(function(img){
+      img.addEventListener("click", function(){ openLb(img.getAttribute("src"), img.getAttribute("alt")); });
+    });
+    lb.addEventListener("click", closeLb);
+    document.addEventListener("keydown", function(e){ if(e.key === "Escape") closeLb(); });
+  }
+
   /* ---- Footer year ---- */
   var y = document.getElementById("year");
   if(y) y.textContent = new Date().getFullYear();
