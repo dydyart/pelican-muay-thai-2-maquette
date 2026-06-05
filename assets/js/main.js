@@ -31,15 +31,20 @@
     if(prev) prev.addEventListener("click", function(){ track.scrollBy({left:-step(),behavior:"smooth"}); });
     if(next) next.addEventListener("click", function(){ track.scrollBy({left:step(),behavior:"smooth"}); });
 
-    /* autoplay */
-    var timer = setInterval(function(){
+    /* autoplay (pause au survol, reprise à la sortie) */
+    var timer = null;
+    function tick(){
       if(track.scrollLeft + track.clientWidth >= track.scrollWidth - 8){
         track.scrollTo({left:0,behavior:"smooth"});
       }else{
         track.scrollBy({left:step(),behavior:"smooth"});
       }
-    }, 4500);
-    car.addEventListener("mouseenter", function(){ clearInterval(timer); });
+    }
+    function play(){ if(!timer) timer = setInterval(tick, 4500); }
+    function pause(){ if(timer){ clearInterval(timer); timer = null; } }
+    play();
+    car.addEventListener("mouseenter", pause);
+    car.addEventListener("mouseleave", play);
   });
 
   /* ---- Reveal on scroll ---- */
@@ -70,6 +75,45 @@
   /* ---- Footer year ---- */
   var y = document.getElementById("year");
   if(y) y.textContent = new Date().getFullYear();
+
+  /* ---- Bandeau cookies ----
+     Le site ne dépose AUCUN cookie de suivi (pas de Google Analytics, pas de
+     carte Google Maps en iframe). Ce bandeau est une notice de transparence,
+     réaffichable via le lien « Cookies » du pied de page. Le choix est mémorisé
+     en localStorage (exempté de consentement, ce n'est pas un cookie). */
+  var COOKIE_KEY = "pmt-cookie-choice";
+  var banner = null;
+  function buildBanner(){
+    if(banner) return banner;
+    banner = document.createElement("div");
+    banner.className = "cookie-banner";
+    banner.setAttribute("role", "dialog");
+    banner.setAttribute("aria-label", "Information cookies");
+    banner.innerHTML =
+      '<h4>🍪 Cookies &amp; confidentialité</h4>' +
+      '<p>Ce site ne dépose aucun cookie de mesure d\'audience ni de publicité. ' +
+      'Seules les données strictement nécessaires au fonctionnement sont utilisées. ' +
+      'Plus d\'infos dans notre <a href="politique-confidentialite.html">politique de confidentialité</a>.</p>' +
+      '<div class="cb-actions">' +
+        '<button class="btn" data-cookie-ok>J\'ai compris</button>' +
+        '<a class="btn btn--ghost" href="politique-confidentialite.html">En savoir plus</a>' +
+      '</div>';
+    document.body.appendChild(banner);
+    banner.querySelector("[data-cookie-ok]").addEventListener("click", function(){
+      try{ localStorage.setItem(COOKIE_KEY, "ok"); }catch(e){}
+      banner.classList.remove("show");
+    });
+    return banner;
+  }
+  function showBanner(){ var b = buildBanner(); requestAnimationFrame(function(){ b.classList.add("show"); }); }
+  var hasChoice = false;
+  try{ hasChoice = localStorage.getItem(COOKIE_KEY) === "ok"; }catch(e){}
+  if(!hasChoice){ setTimeout(showBanner, 900); }
+
+  /* Réouverture depuis le pied de page (lien « Cookies ») */
+  document.querySelectorAll("[data-cookie-settings]").forEach(function(link){
+    link.addEventListener("click", function(e){ e.preventDefault(); showBanner(); });
+  });
 
   /* ---- Contact form (mailto fallback) ---- */
   var form = document.getElementById("contactForm");

@@ -25,10 +25,9 @@
 <meta name="twitter:description" content="Documents, cours d'essai, équipement et modalités d'inscription au Pelican Muay Thai Bayonne.">
 <meta name="twitter:image" content="https://www.pelicanmuaythai.fr/assets/img/og-image.jpg">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/barlow-400.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/anton-400.woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/style.css">
 
 <script type="application/ld+json">
@@ -38,14 +37,13 @@
   "@id": "https://www.pelicanmuaythai.fr/#club",
   "name": "Pelican Muay Thai Bayonne",
   "url": "https://www.pelicanmuaythai.fr/",
-  "logo": "https://www.pelicanmuaythai.fr/assets/img/logo.jpg",
+  "logo": "https://www.pelicanmuaythai.fr/assets/img/logo.webp",
   "image": "https://www.pelicanmuaythai.fr/assets/img/og-image.jpg",
   "telephone": "+33652688911",
   "email": "pelicanmuaythai@gmail.com",
   "priceRange": "€€",
   "sport": "Muay Thaï",
-  "address": { "@type": "PostalAddress", "streetAddress": "7 avenue Vital Biraben", "postalCode": "64100", "addressLocality": "Bayonne", "addressCountry": "FR" },
-  "geo": { "@type": "GeoCoordinates", "latitude": 43.4768677, "longitude": -1.4821566 },
+  "areaServed": { "@type": "City", "name": "Bayonne" },
   "sameAs": ["https://www.facebook.com/pelicanmuaythai", "https://www.instagram.com/pelicanmuaythai/"],
   "openingHoursSpecification": [
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Thursday", "Friday"], "opens": "17:30", "closes": "20:30" },
@@ -72,13 +70,12 @@
     <div class="tb-left">
       <a href="tel:+33652688911"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>06 52 68 89 11</a>
       <a class="tb-hide" href="mailto:pelicanmuaythai@gmail.com"><svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>pelicanmuaythai@gmail.com</a>
-      <span class="tb-hide" style="opacity:.7"><svg viewBox="0 0 24 24" style="display:inline-block;vertical-align:-3px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> 7 av. Vital Biraben, Bayonne</span>
     </div>
     <div class="tb-right">
       <span class="lbl">Saison sept. → juin</span>
       <span class="tb-soc" style="display:flex;gap:8px">
-        <a href="https://www.facebook.com/pelicanmuaythai" target="_blank" rel="noopener" aria-label="Facebook">f</a>
-        <a href="https://www.instagram.com/pelicanmuaythai/" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+        <a href="https://www.facebook.com/pelicanmuaythai" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
+        <a href="https://www.instagram.com/pelicanmuaythai/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13-.67-.66-1.34-1.07-2.13-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg></a>
       </span>
     </div>
   </div>
@@ -88,12 +85,12 @@
 <header class="site-header">
   <div class="container nav">
     <a href="index.html" class="brand">
-      <img src="assets/img/logo.jpg" alt="Logo Pelican Muay Thai Bayonne">
+      <img src="assets/img/logo.webp" alt="Logo Pelican Muay Thai Bayonne">
       <span><b>PELICAN <span>MUAY THAI</span></b><small>Bayonne · est. 2021</small></span>
     </a>
     <nav class="menu">
       <a href="index.html">Le Club</a>
-      <a href="horaires-tarifs.html">Horaires &amp; Tarifs</a>
+      <a href="cotisations-formules.html">Cotisations &amp; Formules</a>
       <a href="sections.html">Sections</a>
       <a href="adhesion.html" class="active">Adhésion</a>
       <a href="index.html#contact" class="btn">Cours d'essai</a>
@@ -243,17 +240,17 @@
   <div class="container">
     <div class="foot-grid">
       <div class="foot-brand">
-        <img src="assets/img/logo.jpg" alt="Pelican Muay Thai">
+        <img src="assets/img/logo.webp" alt="Pelican Muay Thai">
         <p>Club de boxe thaïlandaise à Bayonne, créé en 2021. Association loi 1901 administrée par des bénévoles.</p>
         <div class="fsoc">
-          <a href="https://www.facebook.com/pelicanmuaythai" target="_blank" rel="noopener">f</a>
-          <a href="https://www.instagram.com/pelicanmuaythai/" target="_blank" rel="noopener">IG</a>
+          <a href="https://www.facebook.com/pelicanmuaythai" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
+          <a href="https://www.instagram.com/pelicanmuaythai/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13-.67-.66-1.34-1.07-2.13-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg></a>
         </div>
       </div>
       <div class="foot-col">
         <h4>Navigation</h4>
         <a href="index.html">Le Club</a>
-        <a href="horaires-tarifs.html">Horaires &amp; Tarifs</a>
+        <a href="cotisations-formules.html">Cotisations &amp; Formules</a>
         <a href="sections.html">Sections</a>
         <a href="adhesion.html">Adhésion</a>
       </div>
@@ -269,12 +266,12 @@
         <ul>
           <li><a href="tel:+33652688911">06 52 68 89 11</a></li>
           <li><a href="mailto:pelicanmuaythai@gmail.com">pelicanmuaythai@gmail.com</a></li>
-          <li>7 avenue Vital Biraben, 64100 Bayonne</li>
+          <li>Bayonne (64)</li>
           <li style="margin-top:10px">Saison de septembre à juin</li>
         </ul>
       </div>
     </div>
-    <div class="foot-bottom">© <span id="year">2026</span> Pelican Muay Thai Bayonne — Tous droits réservés.</div>
+    <div class="foot-bottom">© <span id="year">2026</span> Pelican Muay Thai Bayonne — Tous droits réservés. · <a href="mentions-legales.html">Mentions légales</a> · <a href="politique-confidentialite.html">Politique de confidentialité</a> · <a href="#" data-cookie-settings>Cookies</a></div>
   </div>
 </footer>
 

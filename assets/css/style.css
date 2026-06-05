@@ -3,6 +3,16 @@
    Old-school boxing poster · fond blanc · noir / rouge / laiton
    ========================================================= */
 
+/* ---------- Polices auto-hébergées (RGPD : aucune connexion à Google) ---------- */
+@font-face{font-family:"Anton";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/anton-400.woff2") format("woff2")}
+@font-face{font-family:"Barlow";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/barlow-400.woff2") format("woff2")}
+@font-face{font-family:"Barlow";font-style:normal;font-weight:500;font-display:swap;src:url("../fonts/barlow-500.woff2") format("woff2")}
+@font-face{font-family:"Barlow";font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/barlow-600.woff2") format("woff2")}
+@font-face{font-family:"Barlow";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/barlow-700.woff2") format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:500;font-display:swap;src:url("../fonts/barlow-condensed-500.woff2") format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/barlow-condensed-600.woff2") format("woff2")}
+@font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:700;font-display:swap;src:url("../fonts/barlow-condensed-700.woff2") format("woff2")}
+
 :root{
   --red:#c8102e;
   --red-dark:#9c0c23;
@@ -198,13 +208,16 @@ h1,h2,h3,h4,.display{
 .coach h3{font-size:23px}
 .coach .role{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:1.5px;color:var(--red);font-weight:700;font-size:13.5px;margin-bottom:10px}
 .coach p{font-size:15px;color:var(--ink-soft)}
+.coach .coach-photo{flex:0 0 92px;width:92px;height:92px;border-radius:50%;object-fit:cover;object-position:center 25%;border:2px solid var(--gold);background:#0e0e0e;box-shadow:var(--shadow-sm)}
+/* Photo d'action (paysage) : on affiche l'image entière, cadre rond -> arrondi doux */
+.coach .coach-photo--full{flex:0 0 120px;width:120px;height:120px;border-radius:14px;object-fit:contain;object-position:center}
 
 /* ---------- Carousel ---------- */
 .carousel{position:relative}
 .carousel-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:6px 0 18px;-ms-overflow-style:none;scrollbar-width:none}
 .carousel-track::-webkit-scrollbar{display:none}
 .slide{flex:0 0 auto;width:350px;scroll-snap-align:center;overflow:hidden;box-shadow:var(--shadow);position:relative;background:#1a1a1a;border:1px solid rgba(255,255,255,.08)}
-.slide img{width:100%;height:450px;object-fit:cover;transition:transform .6s var(--ease)}
+.slide img{width:100%;height:380px;object-fit:cover;object-position:center 28%;transition:transform .6s var(--ease)}
 .slide::after{content:"";position:absolute;inset:0;border:2px solid transparent;transition:.3s}
 .slide:hover img{transform:scale(1.06)}
 .slide:hover::after{border-color:var(--gold)}
@@ -361,6 +374,8 @@ h1,h2,h3,h4,.display{
 .partners{display:flex;align-items:center;justify-content:center;gap:60px;flex-wrap:wrap;margin-top:10px}
 .partners img{height:80px;width:auto;filter:grayscale(1);opacity:.65;transition:.25s}
 .partners img:hover{filter:none;opacity:1}
+.partners .partner-text{font-family:"Anton",sans-serif;font-size:42px;letter-spacing:1px;color:var(--ink);opacity:.55;transition:.25s}
+.partners .partner-text:hover{opacity:1;color:var(--red)}
 
 /* ---------- Footer ---------- */
 .site-footer{background:#0a0908;color:#cfcbc4;padding:70px 0 0;border-top:4px solid var(--red)}
@@ -442,3 +457,67 @@ h1,h2,h3,h4,.display{
   .about-media::before,.sec-media::before{display:none}
   .coach{flex-direction:column;text-align:center;align-items:center}
 }
+
+/* ---------- Logos réseaux sociaux (SVG de marque) ---------- */
+.topbar .tb-soc a svg,.socials a svg,.foot-brand .fsoc a svg{fill:currentColor;stroke:none}
+.topbar .tb-soc a svg{width:13px;height:13px}
+.socials a svg{width:22px;height:22px}
+.foot-brand .fsoc a svg{width:18px;height:18px}
+
+/* =========================================================
+   ADDITIONS 2.1 — carte sans cookie, FAQ, bandeau cookies,
+   pages légales, page 404
+   ========================================================= */
+
+/* ---------- FAQ (accordéon) ---------- */
+.faq{max-width:840px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.faq-item{background:#fff;border:1px solid var(--line);border-left:4px solid var(--red);transition:.2s}
+.faq-item[open]{box-shadow:var(--shadow-sm)}
+.faq-item summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:20px 24px;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:19px;
+  text-transform:uppercase;letter-spacing:.5px;color:var(--ink);
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary .pm{flex:0 0 26px;width:26px;height:26px;position:relative}
+.faq-item summary .pm::before,.faq-item summary .pm::after{content:"";position:absolute;background:var(--red);transition:.25s var(--ease)}
+.faq-item summary .pm::before{top:12px;left:3px;right:3px;height:2px}
+.faq-item summary .pm::after{left:12px;top:3px;bottom:3px;width:2px}
+.faq-item[open] summary .pm::after{transform:scaleY(0)}
+.faq-item .faq-body{padding:0 24px 22px;color:var(--ink-soft);font-size:16px;line-height:1.65}
+.faq-item .faq-body a{color:var(--red);text-decoration:underline}
+
+/* ---------- Bandeau cookies ---------- */
+.cookie-banner{
+  position:fixed;left:18px;right:18px;bottom:18px;z-index:300;max-width:560px;margin:0 auto;
+  background:var(--ink);color:#e7e4df;border-top:4px solid var(--red);box-shadow:0 18px 50px rgba(0,0,0,.45);
+  padding:22px 24px;transform:translateY(160%);transition:transform .45s var(--ease);
+}
+.cookie-banner.show{transform:none}
+.cookie-banner h4{font-family:"Anton",sans-serif;color:#fff;font-size:19px;letter-spacing:.5px;margin-bottom:8px}
+.cookie-banner p{font-size:14.5px;color:#c4c0ba;line-height:1.55}
+.cookie-banner p a{color:var(--gold);text-decoration:underline}
+.cookie-banner .cb-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.cookie-banner .cb-actions .btn{padding:12px 22px;font-size:14px}
+.cookie-banner .btn--ghost{color:#fff;border-color:rgba(255,255,255,.4)}
+.cookie-banner .btn--ghost:hover{background:#fff;color:var(--ink)}
+
+/* ---------- Contenu pages légales ---------- */
+.legal{max-width:840px;margin:0 auto}
+.legal h2{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:clamp(24px,3.6vw,32px);color:var(--ink);margin:42px 0 14px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.legal h2:first-child{margin-top:0}
+.legal h2 span{color:var(--red)}
+.legal h3{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.5px;font-size:20px;color:var(--ink);margin:26px 0 8px}
+.legal p,.legal li{color:var(--ink-soft);font-size:16.5px;line-height:1.7;margin-bottom:12px}
+.legal ul{list-style:disc;padding-left:22px;margin-bottom:14px}
+.legal ul li{margin-bottom:6px}
+.legal a{color:var(--red);text-decoration:underline;overflow-wrap:anywhere}
+.legal .todo{background:#fff5f6;border:1px dashed var(--red);color:var(--red-dark);font-weight:600;padding:2px 8px;border-radius:3px}
+.legal .updated{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:1.5px;font-size:13px;color:var(--grey);margin-bottom:30px}
+
+/* ---------- Page 404 ---------- */
+.err-wrap{min-height:62vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 0;background:var(--cream)}
+.err-wrap .big{font-family:"Anton",sans-serif;font-size:clamp(96px,22vw,200px);line-height:.9;color:var(--red);letter-spacing:2px}
+.err-wrap h1{font-family:"Anton",sans-serif;font-size:clamp(28px,4vw,42px);margin:8px 0 14px;text-transform:uppercase}
+.err-wrap p{color:var(--grey);font-size:18px;max-width:520px;margin:0 auto 30px}
+.err-wrap .hero-actions{justify-content:center}
