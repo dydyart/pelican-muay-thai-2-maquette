@@ -32,3 +32,31 @@ RedirectMatch 301 ^/newsletter/?$                       https://www.pelicanmuayt
 # 3) Page 404 personnalisee
 # ---------------------------------------------------------
 ErrorDocument 404 /404.html
+
+# ---------------------------------------------------------
+# 4) Compression GZIP (fichiers texte plus legers)
+# ---------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml application/xml
+</IfModule>
+
+# ---------------------------------------------------------
+# 5) Cache navigateur (le visiteur ne recharge pas tout a chaque visite)
+# ---------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # Images, polices : 1 an (elles changent rarement)
+  ExpiresByType image/webp              "access plus 1 year"
+  ExpiresByType image/jpeg              "access plus 1 year"
+  ExpiresByType image/png               "access plus 1 year"
+  ExpiresByType image/x-icon            "access plus 1 year"
+  ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
+  ExpiresByType font/woff2              "access plus 1 year"
+  # CSS / JS : 1 mois
+  ExpiresByType text/css                "access plus 1 month"
+  ExpiresByType application/javascript  "access plus 1 month"
+  # HTML : pas de cache long (pour voir les mises a jour tout de suite)
+  ExpiresByType text/html               "access plus 0 seconds"
+</IfModule>
