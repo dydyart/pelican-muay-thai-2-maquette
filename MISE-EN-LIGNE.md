@@ -1,15 +1,18 @@
 # Mise en ligne du site Pelican Muay Thai (OVH)
 
 > Hébergeur : OVH (mutualisé) — dossier racine du site = **`www`** (PAS `public_html`).
-> Accès aux fichiers = **FTP** (logiciel FileZilla) avec les identifiants FTP OVH.
+> Accès aux fichiers = **FTP**, SANS rien installer :
+> - **Explorateur de fichiers Windows** (le plus simple) : taper `ftp://ftp.clusterXXX.hosting.ovh.net`
+>   dans la barre d'adresse → login + mot de passe FTP → glisser-déposer comme un dossier normal.
+> - ou **FileZilla Portable** (zip à décompresser, aucune installation).
+> Identifiants FTP : OVH → Hébergements → onglet **FTP-SSH**.
 
 ---
 
-## 1) Activer le SSL (À FAIRE EN PREMIER)
-Notre `.htaccess` force le HTTPS : sans certificat, le site serait inaccessible.
-- Espace client OVH → **Hébergements** → ton hébergement → onglet **"SSL"** (ou "Multisite").
-- Activer le certificat **SSL gratuit (Let's Encrypt)**.
-- Attendre qu'il soit **"Actif"** (quelques minutes à quelques heures).
+## 1) Vérifier le SSL (normalement déjà actif)
+- Si le site actuel s'affiche déjà en **`https://` avec le cadenas** 🔒 → **le SSL est déjà actif, rien à faire.**
+- Sinon : OVH → Hébergements → onglet **"SSL"** → activer le certificat gratuit (Let's Encrypt) et attendre qu'il soit "Actif".
+- (Important : notre `.htaccess` force le HTTPS, donc le certificat doit être actif.)
 
 ## 2) Créer la propriété Google Search Console
 - Aller sur **search.google.com/search-console** → se connecter avec un Gmail.
@@ -17,10 +20,12 @@ Notre `.htaccess` force le HTTPS : sans certificat, le site serait inaccessible.
 - **Télécharger le fichier de vérification `.html`** (on l'ajoutera au site à l'étape 4).
 - ⚠️ Ne pas cliquer "Vérifier" maintenant → on le fera APRÈS la mise en ligne (étape 7).
 
-## 3) Sauvegarder l'ancien WordPress (sécurité)
-- **Fichiers** : via FTP (FileZilla), télécharger tout le dossier `www` sur le PC.
-- **Base de données** : OVH → section **Bases de données** → **phpMyAdmin** → onglet **Exporter** → télécharger le fichier `.sql`.
-- Garder ces 2 fichiers précieusement (permet de revenir en arrière si besoin).
+## 3) Sauvegarder l'ancien WordPress (sécurité) — DEUX choses séparées
+- **(a) Les FICHIERS** : via FTP (Explorateur Windows), copier tout le dossier `www` sur le PC.
+- **(b) La BASE DE DONNÉES** (le contenu WordPress n'est PAS dans les fichiers !) :
+  OVH → section **Bases de données** → **phpMyAdmin** → onglet **Exporter** → télécharger le `.sql`.
+- ⚠️ Le FTP ne sauvegarde QUE les fichiers. Sans l'export `.sql`, la sauvegarde WordPress est incomplète.
+- Garder ces 2 sauvegardes précieusement (permet de tout remettre si besoin).
 
 ## 4) Préparer le ZIP du nouveau site
 - Sur GitHub : bouton vert **Code → Download ZIP**.
@@ -30,11 +35,12 @@ Notre `.htaccess` force le HTTPS : sans certificat, le site serait inaccessible.
 - ✅ Déjà présents (ne pas toucher) : `index.html`, `assets/`, `.htaccess`, `sitemap.xml`, `robots.txt`.
 - ⚠️ Le `.htaccess` est un fichier **caché** → activer "afficher les fichiers cachés" pour ne pas l'oublier.
 
-## 5) Déployer sur OVH
-- Via FTP (FileZilla), ouvrir le dossier **`www`** sur le serveur OVH.
-- **Supprimer tout le contenu WordPress** dans `www`.
-- **Uploader le contenu** du nouveau site dans `www` (les fichiers, pas le dossier `…-master`).
+## 5) Déployer sur OVH (via l'Explorateur Windows `ftp://...` ou FileZilla Portable)
+- Ouvrir le dossier **`www`** sur le serveur OVH.
+- **Supprimer tout le contenu WordPress** dans `www` (après l'avoir sauvegardé à l'étape 3).
+- **Glisser-déposer le contenu** du nouveau site dans `www` (les fichiers, PAS le dossier `…-master`).
 - Vérifier que **`index.html`** et **`.htaccess`** sont bien **directement dans `www`** (à la racine).
+- ⚠️ Le `.htaccess` est caché : s'assurer qu'il a bien été copié (c'est lui qui fait les redirections).
 
 ## 6) Vérifier que tout fonctionne
 - [ ] `https://www.pelicanmuaythai.fr` s'affiche, cadenas 🔒 présent.
