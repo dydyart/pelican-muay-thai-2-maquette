@@ -1,0 +1,34 @@
+# =========================================================
+#  Pelican Muay Thai — .htaccess (OVH / Apache)
+#  Refonte WordPress -> site statique
+# =========================================================
+
+# ---------------------------------------------------------
+# 1) Forcer HTTPS + www (1 seule version canonique = bon SEO)
+#    /!\ Activer d'abord le certificat SSL gratuit sur OVH,
+#        sinon le site sera inaccessible.
+# ---------------------------------------------------------
+RewriteEngine On
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www.pelicanmuaythai.fr%{REQUEST_URI} [L,R=301]
+
+# ---------------------------------------------------------
+# 2) Redirections 301 des anciennes URLs WordPress
+#    (les plus precises d'abord)
+# ---------------------------------------------------------
+RedirectMatch 301 ^/adhesion/cours-dessai-gratuit/?$   https://www.pelicanmuaythai.fr/adhesion.html
+RedirectMatch 301 ^/adhesion/?$                         https://www.pelicanmuaythai.fr/adhesion.html
+RedirectMatch 301 ^/horaires/?$                         https://www.pelicanmuaythai.fr/cotisations-formules.html
+RedirectMatch 301 ^/tarif/?$                            https://www.pelicanmuaythai.fr/cotisations-formules.html
+RedirectMatch 301 ^/le-club/dossier-competition/?$      https://www.pelicanmuaythai.fr/
+RedirectMatch 301 ^/le-club/galerie/?$                  https://www.pelicanmuaythai.fr/
+RedirectMatch 301 ^/le-club/?$                          https://www.pelicanmuaythai.fr/
+RedirectMatch 301 ^/infos/mentions-legales/?$           https://www.pelicanmuaythai.fr/mentions-legales.html
+RedirectMatch 301 ^/infos/?$                            https://www.pelicanmuaythai.fr/adhesion.html
+RedirectMatch 301 ^/newsletter/?$                       https://www.pelicanmuaythai.fr/
+
+# ---------------------------------------------------------
+# 3) Page 404 personnalisee
+# ---------------------------------------------------------
+ErrorDocument 404 /404.html
