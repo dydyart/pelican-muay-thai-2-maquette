@@ -385,12 +385,12 @@ h1,h2,h3,h4,.display{
 .foot-brand .fsoc{display:flex;gap:12px;margin-top:18px}
 .foot-brand .fsoc a{width:40px;height:40px;border:1px solid rgba(255,255,255,.2);border-radius:50%;display:grid;place-items:center;font-family:"Barlow Condensed",sans-serif;font-weight:700;transition:.2s}
 .foot-brand .fsoc a:hover{background:var(--red);border-color:var(--red);color:#fff}
-.foot-col h4{font-family:"Anton",sans-serif;text-transform:uppercase;color:#fff;font-size:19px;letter-spacing:1px;margin-bottom:20px;position:relative;padding-bottom:12px}
-.foot-col h4::after{content:"";position:absolute;left:0;bottom:0;width:34px;height:3px;background:var(--red)}
+.foot-col h2{font-family:"Anton",sans-serif;text-transform:uppercase;color:#fff;font-size:19px;letter-spacing:1px;margin-bottom:20px;position:relative;padding-bottom:12px}
+.foot-col h2::after{content:"";position:absolute;left:0;bottom:0;width:34px;height:3px;background:var(--red)}
 .foot-col a,.foot-col li{display:block;padding:8px 0;color:#b6b2ab;font-size:15px;transition:.2s}
 .foot-col a:hover{color:var(--gold);padding-left:6px}
-.foot-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:52px;padding:24px 0;text-align:center;font-size:13px;color:#79756f}
-.foot-bottom a{color:var(--gold)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:52px;padding:24px 0;text-align:center;font-size:13px;color:#9a958d}
+.foot-bottom a{color:var(--gold);text-decoration:underline}
 .foot-bottom .credit strong,.foot-bottom .credit a{color:var(--gold);letter-spacing:.5px;font-weight:700}
 .foot-bottom .credit a{text-decoration:none}
 .foot-bottom .credit a:hover{text-decoration:underline}
